@@ -59,7 +59,7 @@ export default function ImageConverter() {
     }
 
     try {
-      const { blob, format } = await convertImage(
+      const { blob } = await convertImage(
         originalFile,
         outputFormat,
         quality
