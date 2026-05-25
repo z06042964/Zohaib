@@ -12,9 +12,9 @@ const QUICK_LINKS = [
 ];
 
 const TOOL_LINKS = [
-  { label: "Background Remover", href: "/tools/background-remover" },
-  { label: "Image Converter", href: "/tools/image-converter" },
-  { label: "Image Compressor", href: "/tools/image-compressor" },
+  { label: "Background Remover", href: "/background-remover" },
+  { label: "PNG to JPG", href: "/png-to-jpg" },
+  { label: "Image Compressor", href: "/image-compressor" },
 ];
 
 const SOCIAL = [
@@ -98,7 +98,7 @@ export default function Footer() {
               About
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
-              PixelCraft is built for designers, marketers, and creators who need
+              Imgoraa is built for designers, marketers, and creators who need
               professional image processing without complex software.
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 sm:flex-row">
           <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} PixelCraft AI. All rights reserved.
+            &copy; {new Date().getFullYear()} Imgoraa. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-slate-500">
             <Link to="/privacy" className="transition-colors hover:text-white">

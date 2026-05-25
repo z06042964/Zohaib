@@ -4,7 +4,8 @@ import { Upload, ImageIcon } from "lucide-react";
 export default function ImageDropzone({
   onFileSelect,
   disabled = false,
-  accept = "image/jpeg,image/png,image/webp",
+  accept = "image/jpeg,image/png,image/webp,image/gif,image/bmp",
+  helperText = "Supports JPG, PNG, WEBP, GIF, BMP - max 15 MB",
 }) {
   const inputRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -77,7 +78,7 @@ export default function ImageDropzone({
         or <span className="font-medium text-brand-600">browse files</span>
       </p>
       <p className="mt-4 text-xs text-slate-400">
-        Supports JPG, PNG, WEBP — max 12 MB
+        {helperText}
       </p>
     </div>
   );

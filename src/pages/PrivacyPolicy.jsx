@@ -6,14 +6,14 @@ export default function PrivacyPolicy() {
     <LegalPageLayout title="Privacy Policy" lastUpdated="May 23, 2026">
       <LegalSection title="Introduction">
         <p>
-          Welcome to PixelCraft AI (&quot;we,&quot; &quot;our,&quot; or
+          Welcome to Imgoraa (&quot;we,&quot; &quot;our,&quot; or
           &quot;us&quot;). We respect your privacy and are committed to protecting
           your personal information. This Privacy Policy explains how we collect,
           use, and safeguard information when you use our website and image
           processing tools.
         </p>
         <p>
-          By using PixelCraft AI, you agree to the practices described in this
+          By using Imgoraa, you agree to the practices described in this
           policy. If you do not agree, please do not use our services.
         </p>
       </LegalSection>
@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
 
       <LegalSection title="Children's Privacy">
         <p>
-          PixelCraft AI is not intended for children under 13 years of age. We do
+          Imgoraa is not intended for children under 13 years of age. We do
           not knowingly collect personal information from children. If you believe
           a child has provided us with personal data, please contact us so we can
           remove it.
@@ -143,10 +143,10 @@ export default function PrivacyPolicy() {
         </p>
         <p>
           <a
-            href="mailto:privacy@pixelcraft.ai"
+            href="mailto:privacy@imgoraa.ai"
             className="font-medium text-brand-600 hover:underline"
           >
-            privacy@pixelcraft.ai
+            privacy@imgoraa.ai
           </a>
         </p>
       </LegalSection>

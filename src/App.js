@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import BackgroundRemover from "./pages/BackgroundRemover";
@@ -15,14 +15,23 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/background-remover" element={<BackgroundRemover />} />
+          <Route path="/image-compressor" element={<ImageCompressor />} />
+          <Route
+            path="/png-to-jpg"
+            element={<ImageConverter variant="png-to-jpg" />}
+          />
           <Route
             path="/tools/background-remover"
-            element={<BackgroundRemover />}
+            element={<Navigate to="/background-remover" replace />}
           />
-          <Route path="/tools/image-converter" element={<ImageConverter />} />
+          <Route
+            path="/tools/image-converter"
+            element={<Navigate to="/png-to-jpg" replace />}
+          />
           <Route
             path="/tools/image-compressor"
-            element={<ImageCompressor />}
+            element={<Navigate to="/image-compressor" replace />}
           />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />

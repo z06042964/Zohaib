@@ -5,9 +5,9 @@ import {
   Zap,
   Shield,
   Users,
-  Sparkles,
 } from "lucide-react";
 import Button from "../components/ui/Button";
+import BrandMark from "../components/ui/BrandMark";
 import { TOOLS } from "../constants/tools";
 
 const VALUES = [
@@ -59,7 +59,7 @@ export default function About() {
               <span className="gradient-text">accessible for everyone</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-              PixelCraft AI is a modern image tools platform built to help
+              Imgoraa is a modern image tools platform built to help
               creators, businesses, and everyday users edit images quickly —
               without expensive software or technical skills.
             </p>
@@ -77,7 +77,7 @@ export default function About() {
                   shrinking images for the web.
                 </p>
                 <p className="mt-4 leading-relaxed text-slate-600">
-                  PixelCraft AI combines smart automation with a clean,
+                  Imgoraa combines smart automation with a clean,
                   intuitive interface so you can focus on creating, not
                   wrestling with complex editors.
                 </p>
@@ -88,12 +88,8 @@ export default function About() {
                     className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-brand-400/20 to-violet-400/20 blur-2xl"
                     aria-hidden="true"
                   />
-                  <div className="relative flex h-48 w-48 items-center justify-center rounded-3xl bg-gradient-to-br from-brand-600 to-violet-600 shadow-glow sm:h-56 sm:w-56">
-                    <Sparkles
-                      className="h-20 w-20 text-white sm:h-24 sm:w-24"
-                      strokeWidth={1.5}
-                      aria-hidden="true"
-                    />
+                  <div className="relative flex h-48 w-48 items-center justify-center sm:h-56 sm:w-56">
+                    <BrandMark className="h-40 w-40 drop-shadow-2xl sm:h-48 sm:w-48" />
                   </div>
                 </div>
               </div>
@@ -135,7 +131,7 @@ export default function About() {
 
           <div className="mb-16">
             <h2 className="text-center text-2xl font-bold text-slate-900">
-              Why choose PixelCraft AI
+              Why choose Imgoraa
             </h2>
             <div className="mt-10 grid gap-6 sm:grid-cols-2">
               {VALUES.map(({ icon: Icon, title, description }) => (

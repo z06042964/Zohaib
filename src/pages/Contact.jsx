@@ -15,8 +15,8 @@ const CONTACT_INFO = [
     icon: Mail,
     title: "Email us",
     description: "We typically respond within 24–48 hours.",
-    value: "contact@pixelcraft.ai",
-    href: "mailto:contact@pixelcraft.ai",
+    value: "contact@imgoraa.ai",
+    href: "mailto:contact@imgoraa.ai",
   },
   {
     icon: Clock,
@@ -75,11 +75,11 @@ export default function Contact() {
       return;
     }
 
-    const subject = encodeURIComponent(`[PixelCraft] ${form.subject}`);
+    const subject = encodeURIComponent(`[Imgoraa] ${form.subject}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
     );
-    window.location.href = `mailto:contact@pixelcraft.ai?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@imgoraa.ai?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -158,10 +158,10 @@ export default function Contact() {
                 <p className="mt-2 max-w-md text-slate-600">
                   If it didn&apos;t open, email us directly at{" "}
                   <a
-                    href="mailto:contact@pixelcraft.ai"
+                    href="mailto:contact@imgoraa.ai"
                     className="font-medium text-brand-600 hover:underline"
                   >
-                    contact@pixelcraft.ai
+                    contact@imgoraa.ai
                   </a>
                 </p>
                 <Button

@@ -8,7 +8,7 @@ export default function TermsOfService() {
       <LegalSection title="Agreement to Terms">
         <p>
           These Terms and Conditions (&quot;Terms&quot;) govern your access to and
-          use of the PixelCraft AI website and image processing tools
+          use of the Imgoraa website and image processing tools
           (collectively, the &quot;Service&quot;). By accessing or using the Service,
           you agree to be bound by these Terms. If you do not agree, you must not
           use the Service.
@@ -17,7 +17,7 @@ export default function TermsOfService() {
 
       <LegalSection title="Description of Service">
         <p>
-          PixelCraft AI provides online image utilities, including but not limited
+          Imgoraa provides online image utilities, including but not limited
           to background removal, image format conversion, and image compression.
           Some tools operate entirely in your browser; others may rely on
           third-party APIs to process your content.
@@ -30,8 +30,8 @@ export default function TermsOfService() {
 
       <LegalSection title="Eligibility">
         <p>
-          You must be at least 13 years old to use the Service. By using PixelCraft
-          AI, you represent that you meet this requirement and have the legal
+          You must be at least 13 years old to use the Service. By using Imgoraa,
+          you represent that you meet this requirement and have the legal
           capacity to enter into these Terms.
         </p>
       </LegalSection>
@@ -67,7 +67,7 @@ export default function TermsOfService() {
 
       <LegalSection title="Intellectual Property">
         <p>
-          The PixelCraft AI name, logo, website design, and original content are
+          The Imgoraa name, logo, website design, and original content are
           owned by us or our licensors and are protected by intellectual property
           laws. You may not copy, modify, or distribute our branding without prior
           written permission.
@@ -109,7 +109,7 @@ export default function TermsOfService() {
 
       <LegalSection title="Limitation of Liability">
         <p>
-          To the fullest extent permitted by law, PixelCraft AI and its operators
+          To the fullest extent permitted by law, Imgoraa and its operators
           shall not be liable for any indirect, incidental, special, consequential,
           or punitive damages arising from your use of the Service, including loss
           of data, profits, or business opportunities.
@@ -123,7 +123,7 @@ export default function TermsOfService() {
 
       <LegalSection title="Indemnification">
         <p>
-          You agree to indemnify and hold harmless PixelCraft AI from any claims,
+          You agree to indemnify and hold harmless Imgoraa from any claims,
           damages, losses, or expenses (including reasonable legal fees) arising
           from your use of the Service, your uploaded content, or your violation
           of these Terms.
@@ -162,10 +162,10 @@ export default function TermsOfService() {
         </p>
         <p>
           <a
-            href="mailto:legal@pixelcraft.ai"
+            href="mailto:legal@imgoraa.ai"
             className="font-medium text-brand-600 hover:underline"
           >
-            legal@pixelcraft.ai
+            legal@imgoraa.ai
           </a>
         </p>
         <p>

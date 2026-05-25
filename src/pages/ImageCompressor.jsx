@@ -170,6 +170,8 @@ export default function ImageCompressor() {
                   <img
                     src={originalUrl}
                     alt="Original"
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-64 max-w-full rounded-lg object-contain shadow-sm"
                   />
                 </div>
@@ -357,6 +359,8 @@ export default function ImageCompressor() {
                     <img
                       src={originalUrl}
                       alt="Before compression"
+                      loading="lazy"
+                      decoding="async"
                       className="max-h-full max-w-full rounded-lg object-contain"
                     />
                   </div>
@@ -375,6 +379,8 @@ export default function ImageCompressor() {
                     <img
                       src={resultUrl}
                       alt="After compression"
+                      loading="lazy"
+                      decoding="async"
                       className="max-h-full max-w-full rounded-lg object-contain"
                     />
                   </div>

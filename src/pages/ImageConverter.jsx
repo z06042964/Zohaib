@@ -17,18 +17,30 @@ import {
   formatFileSize,
 } from "../services/imageConverter";
 
-export default function ImageConverter() {
+export default function ImageConverter({ variant = "converter" }) {
+  const isPngToJpg = variant === "png-to-jpg";
   const [originalFile, setOriginalFile] = useState(null);
   const [originalUrl, setOriginalUrl] = useState(null);
   const [resultUrl, setResultUrl] = useState(null);
   const [resultBlob, setResultBlob] = useState(null);
-  const [outputFormat, setOutputFormat] = useState("png");
+  const [outputFormat, setOutputFormat] = useState(isPngToJpg ? "jpg" : "png");
   const [quality, setQuality] = useState(0.92);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
 
   const selectedFormat = OUTPUT_FORMATS.find((f) => f.id === outputFormat);
   const showQuality = selectedFormat?.supportsQuality;
+  const pageTitle = isPngToJpg ? "PNG to JPG Converter" : "Image Converter";
+  const pageDescription = isPngToJpg
+    ? "Convert PNG images to JPG online for smaller files and faster loading. Everything happens right in your browser."
+    : "Convert images between JPG, PNG, and WEBP instantly. Fast, browser-based processing with no upload to a server.";
+  const formatHeading = isPngToJpg ? "JPG output" : "Output format";
+  const fileAccept = isPngToJpg
+    ? "image/png"
+    : "image/jpeg,image/png,image/webp,image/gif,image/bmp";
+  const dropzoneHelperText = isPngToJpg
+    ? "Supports PNG only - max 15 MB"
+    : "Supports JPG, PNG, WEBP, GIF, BMP - max 15 MB";
 
   const cleanupUrls = useCallback(() => {
     if (originalUrl) URL.revokeObjectURL(originalUrl);
@@ -120,18 +132,18 @@ export default function ImageConverter() {
               />
             </div>
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Image Converter
+              {pageTitle}
             </h1>
             <p className="mx-auto mt-3 max-w-xl text-slate-600">
-              Convert images between JPG, PNG, and WEBP instantly. Fast,
-              browser-based processing — no upload to a server.
+              {pageDescription}
             </p>
           </div>
 
           {status === "idle" && (
             <ImageDropzone
               onFileSelect={handleFileSelect}
-              accept="image/jpeg,image/png,image/webp,image/gif,image/bmp"
+              accept={fileAccept}
+              helperText={dropzoneHelperText}
             />
           )}
 
@@ -150,6 +162,8 @@ export default function ImageConverter() {
                   <img
                     src={originalUrl}
                     alt="Original"
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-64 max-w-full rounded-lg object-contain shadow-sm"
                   />
                 </div>
@@ -157,19 +171,28 @@ export default function ImageConverter() {
 
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
                 <h2 className="text-lg font-bold text-slate-900">
-                  Output format
+                  {formatHeading}
                 </h2>
-                <p className="mt-1 text-sm text-slate-500">
-                  {selectedFormat?.description}
-                </p>
-                <div className="mt-4">
-                  <FormatSelector
-                    formats={OUTPUT_FORMATS}
-                    value={outputFormat}
-                    onChange={setOutputFormat}
-                    disabled={isProcessing}
-                  />
-                </div>
+                {isPngToJpg ? (
+                  <p className="mt-1 text-sm text-slate-500">
+                    PNG files will be converted to JPG for smaller, web-friendly
+                    output.
+                  </p>
+                ) : (
+                  <>
+                    <p className="mt-1 text-sm text-slate-500">
+                      {selectedFormat?.description}
+                    </p>
+                    <div className="mt-4">
+                      <FormatSelector
+                        formats={OUTPUT_FORMATS}
+                        value={outputFormat}
+                        onChange={setOutputFormat}
+                        disabled={isProcessing}
+                      />
+                    </div>
+                  </>
+                )}
 
                 {showQuality && (
                   <div className="mt-6">
@@ -267,6 +290,8 @@ export default function ImageConverter() {
                     <img
                       src={originalUrl}
                       alt="Original"
+                      loading="lazy"
+                      decoding="async"
                       className="max-h-full max-w-full rounded-lg object-contain"
                     />
                   </div>
@@ -308,6 +333,8 @@ export default function ImageConverter() {
                     <img
                       src={resultUrl}
                       alt="Converted result"
+                      loading="lazy"
+                      decoding="async"
                       className="max-h-full max-w-full rounded-lg object-contain"
                     />
                   </div>

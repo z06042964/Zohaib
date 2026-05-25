@@ -151,6 +151,8 @@ export default function BackgroundRemover() {
                     <img
                       src={originalUrl}
                       alt="Original upload"
+                      loading="lazy"
+                      decoding="async"
                       className="max-h-full max-w-full rounded-lg object-contain shadow-sm"
                     />
                   </div>
@@ -174,6 +176,8 @@ export default function BackgroundRemover() {
                     <img
                       src={resultUrl}
                       alt="Background removed result"
+                      loading="lazy"
+                      decoding="async"
                       className="max-h-full max-w-full rounded-lg object-contain"
                     />
                   </div>
