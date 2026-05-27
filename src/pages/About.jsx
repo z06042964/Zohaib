@@ -9,6 +9,7 @@ import {
 import Button from "../components/ui/Button";
 import BrandMark from "../components/ui/BrandMark";
 import { TOOLS } from "../constants/tools";
+import useSiteTitle from "../hooks/useSiteTitle";
 
 const VALUES = [
   {
@@ -38,6 +39,8 @@ const VALUES = [
 ];
 
 export default function About() {
+  const siteTitle = useSiteTitle();
+
   return (
     <main className="pt-24 pb-16 sm:pt-28 sm:pb-24">
       <div className="section-container">
@@ -59,7 +62,7 @@ export default function About() {
               <span className="gradient-text">accessible for everyone</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-              Imgoraa is a modern image tools platform built to help
+              {siteTitle} is a modern image tools platform built to help
               creators, businesses, and everyday users edit images quickly —
               without expensive software or technical skills.
             </p>
@@ -77,7 +80,7 @@ export default function About() {
                   shrinking images for the web.
                 </p>
                 <p className="mt-4 leading-relaxed text-slate-600">
-                  Imgoraa combines smart automation with a clean,
+                  {siteTitle} combines smart automation with a clean,
                   intuitive interface so you can focus on creating, not
                   wrestling with complex editors.
                 </p>
@@ -131,7 +134,7 @@ export default function About() {
 
           <div className="mb-16">
             <h2 className="text-center text-2xl font-bold text-slate-900">
-              Why choose Imgoraa
+              Why choose {siteTitle}
             </h2>
             <div className="mt-10 grid gap-6 sm:grid-cols-2">
               {VALUES.map(({ icon: Icon, title, description }) => (

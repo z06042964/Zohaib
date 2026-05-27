@@ -1,6 +1,6 @@
 import { FAQ_ITEMS } from "../constants/faq";
 
-export const BASE_URL = "https://www.imgoraa.com";
+export const BASE_URL = "https://imgoraa.com";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.svg`;
 const DEFAULT_ROBOTS = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
 

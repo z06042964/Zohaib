@@ -1,0 +1,50 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAllowedAdmin() {
+      return isSignedIn() &&
+        request.auth.token.email in [
+          "replace-with-your-admin-email@example.com"
+        ];
+    }
+
+    match /siteContent/navbar {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/header {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/footer {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/ads {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/settings {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/{documentId} {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

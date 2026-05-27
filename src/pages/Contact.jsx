@@ -9,6 +9,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Button from "../components/ui/Button";
+import useSiteTitle from "../hooks/useSiteTitle";
 
 const CONTACT_INFO = [
   {
@@ -42,6 +43,7 @@ const INITIAL_FORM = {
 };
 
 export default function Contact() {
+  const siteTitle = useSiteTitle();
   const [form, setForm] = useState(INITIAL_FORM);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -75,7 +77,7 @@ export default function Contact() {
       return;
     }
 
-    const subject = encodeURIComponent(`[Imgoraa] ${form.subject}`);
+    const subject = encodeURIComponent(`[${siteTitle}] ${form.subject}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
     );

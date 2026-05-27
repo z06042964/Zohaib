@@ -1,30 +1,51 @@
 import { Link } from "react-router-dom";
-import { GitBranch, Share2, Globe, Mail } from "lucide-react";
+import {
+  Camera,
+  Globe,
+  Mail,
+  PlaySquare,
+  Send,
+  Share2,
+  Users,
+} from "lucide-react";
 import Logo from "../ui/Logo";
+import useFooterConfig from "../../hooks/useFooterConfig";
+import useSiteTitle from "../../hooks/useSiteTitle";
 
-const QUICK_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Tools", href: "/#tools" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/contact" },
-];
+const SOCIAL_ICON_MAP = {
+  share2: Share2,
+  globe: Globe,
+  mail: Mail,
+  facebook: Users,
+  instagram: Camera,
+  linkedin: Users,
+  twitter: Send,
+  youtube: PlaySquare,
+};
 
-const TOOL_LINKS = [
-  { label: "Background Remover", href: "/background-remover" },
-  { label: "PNG to JPG", href: "/png-to-jpg" },
-  { label: "Image Compressor", href: "/image-compressor" },
-];
+function FooterNavItem({ link }) {
+  const className = "text-sm text-slate-400 transition-colors hover:text-white";
 
-const SOCIAL = [
-  { label: "Share", icon: Share2, href: "#" },
-  { label: "GitHub", icon: GitBranch, href: "#" },
-  { label: "Website", icon: Globe, href: "#" },
-  { label: "Email", icon: Mail, href: "/contact" },
-];
+  if (link.isRoute) {
+    return (
+      <Link to={link.href} className={className}>
+        {link.label}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={link.href} className={className}>
+      {link.label}
+    </a>
+  );
+}
 
 export default function Footer() {
+  const siteTitle = useSiteTitle();
+  const { config } = useFooterConfig();
+  const { brandDescription, quickLinks, toolLinks, socialLinks } = config;
+
   return (
     <footer id="contact" className="bg-slate-900 text-slate-300">
       <div className="section-container py-16 lg:py-20">
@@ -32,16 +53,16 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Logo variant="dark" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
-              Powerful AI image tools for creators. Remove backgrounds, convert
-              formats, and compress images — fast and free.
+              {brandDescription}
             </p>
             <div className="mt-6 flex gap-3">
-              {SOCIAL.map(({ label, icon: Icon, href }) => {
+              {socialLinks.map(({ id, label, iconKey, href, isRoute }) => {
+                const Icon = SOCIAL_ICON_MAP[iconKey] || Globe;
                 const className =
                   "flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-400 transition-all duration-300 hover:bg-brand-600 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500";
-                return href === "/contact" ? (
+                return isRoute ? (
                   <Link
-                    key={label}
+                    key={id}
                     to={href}
                     aria-label={label}
                     className={className}
@@ -49,7 +70,7 @@ export default function Footer() {
                     <Icon className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 ) : (
-                  <a key={label} href={href} aria-label={label} className={className}>
+                  <a key={id} href={href} aria-label={label} className={className}>
                     <Icon className="h-4 w-4" aria-hidden="true" />
                   </a>
                 );
@@ -62,14 +83,9 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="mt-4 space-y-3">
-              {QUICK_LINKS.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </a>
+              {quickLinks.map((link) => (
+                <li key={link.id}>
+                  <FooterNavItem link={link} />
                 </li>
               ))}
             </ul>
@@ -80,14 +96,9 @@ export default function Footer() {
               Tools
             </h3>
             <ul className="mt-4 space-y-3">
-              {TOOL_LINKS.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </a>
+              {toolLinks.map((link) => (
+                <li key={link.id}>
+                  <FooterNavItem link={link} />
                 </li>
               ))}
             </ul>
@@ -98,7 +109,7 @@ export default function Footer() {
               About
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
-              Imgoraa is built for designers, marketers, and creators who need
+              {siteTitle} is built for designers, marketers, and creators who need
               professional image processing without complex software.
             </p>
           </div>
@@ -106,7 +117,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 sm:flex-row">
           <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} Imgoraa. All rights reserved.
+            &copy; {new Date().getFullYear()} {siteTitle}. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-slate-500">
             <Link to="/privacy" className="transition-colors hover:text-white">

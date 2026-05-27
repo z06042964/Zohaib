@@ -3,8 +3,8 @@ import { Menu, X } from "lucide-react";
 import Logo from "../ui/Logo";
 import Button from "../ui/Button";
 import NavLink from "./NavLink";
-import { NAV_LINKS } from "../../constants/navigation";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
+import useNavbarLinks from "../../hooks/useNavbarLinks";
 
 const linkClass =
   "text-sm font-medium text-slate-600 transition-colors hover:text-brand-600";
@@ -15,6 +15,7 @@ const mobileLinkClass =
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const scrolled = useScrollPosition();
+  const { links } = useNavbarLinks();
 
   const closeMobile = () => setMobileOpen(false);
 
@@ -31,8 +32,8 @@ export default function Navbar() {
         <Logo />
 
         <ul className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.label}>
+          {links.map((link) => (
+            <li key={link.id || `${link.label}-${link.href}`}>
               <NavLink {...link} className={linkClass} />
             </li>
           ))}
@@ -65,8 +66,8 @@ export default function Navbar() {
         }`}
       >
         <ul className="section-container flex flex-col gap-1 py-4">
-          {NAV_LINKS.map((link) => (
-            <li key={link.label}>
+          {links.map((link) => (
+            <li key={link.id || `${link.label}-${link.href}`}>
               <NavLink
                 {...link}
                 className={mobileLinkClass}
