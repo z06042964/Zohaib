@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imgoraa.com/sitemap.xml
+Host: imgoraa.com

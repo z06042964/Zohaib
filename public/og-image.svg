@@ -1,0 +1,50 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="120" y1="70" x2="1075" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF2FF" />
+      <stop offset="1" stop-color="#F5F3FF" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="170" y1="160" x2="430" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F46E5" />
+      <stop offset="1" stop-color="#8B5CF6" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" rx="32" fill="url(#bgGradient)" />
+  <circle cx="1020" cy="110" r="140" fill="#E0E7FF" fill-opacity="0.55" />
+  <circle cx="1050" cy="530" r="170" fill="#EDE9FE" fill-opacity="0.8" />
+
+  <rect x="120" y="120" width="960" height="390" rx="36" fill="white" />
+  <rect x="160" y="160" width="280" height="280" rx="52" fill="url(#cardGradient)" />
+  <path
+    d="M242 337V229.5C242 216.521 252.521 206 265.5 206H334.5C347.479 206 358 216.521 358 229.5V337"
+    stroke="white"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M242 319L286 275C291.523 269.477 300.477 269.477 306 275L326.5 295.5L344.5 277.5C350.023 271.977 358.977 271.977 364.5 277.5L378 291"
+    stroke="white"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path d="M348 174L356 198L380 206L356 214L348 238L340 214L316 206L340 198L348 174Z" fill="white" />
+  <circle cx="301" cy="247" r="14" fill="white" />
+
+  <text x="500" y="255" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="700">
+    Imgoraa
+  </text>
+  <text x="500" y="332" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400">
+    AI image tools for creators and businesses
+  </text>
+  <text x="500" y="386" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400">
+    Background removal, compression, and conversion
+  </text>
+
+  <rect x="500" y="430" width="245" height="58" rx="29" fill="#EEF2FF" />
+  <text x="539" y="468" fill="#4338CA" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">
+    imgoraa.com
+  </text>
+</svg>

@@ -1,0 +1,76 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAllowedAdmin() {
+      return isSignedIn() &&
+        request.auth.token.email in [
+          "admin@imgoraa.com"
+        ];
+    }
+
+    match /siteContent/navbar {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/header {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/footer {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/ads {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/settings {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    match /siteContent/{documentId} {
+      allow read: if true;
+      allow write: if isAllowedAdmin();
+    }
+
+    // Public site writes page views; admin reads dashboard stats.
+    match /analyticsDaily/{dateId} {
+      allow read: if isAllowedAdmin();
+      allow create, update: if true;
+    }
+
+    match /analyticsDaily/{dateId}/sessions/{sessionId} {
+      allow read: if isAllowedAdmin();
+      allow create, update: if true;
+    }
+
+    match /analyticsHourly/{hourId} {
+      allow read: if isAllowedAdmin();
+      allow create, update: if true;
+    }
+
+    match /analyticsHourly/{hourId}/sessions/{sessionId} {
+      allow read: if isAllowedAdmin();
+      allow create, update: if true;
+    }
+
+    match /analyticsLive/{sessionId} {
+      allow read: if isAllowedAdmin();
+      allow create, update: if true;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
